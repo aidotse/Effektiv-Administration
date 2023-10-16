@@ -1,5 +1,5 @@
-import sys
 """ Main module to start the application """
+import sys
 
 def main() -> None:
     """ For now just a dummy """
