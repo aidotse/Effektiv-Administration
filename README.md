@@ -1,4 +1,4 @@
-# eAdmin
+# Effektiv Administration
 
 ## Project description
 A description of the project
