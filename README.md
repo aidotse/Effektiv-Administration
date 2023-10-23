@@ -3,7 +3,7 @@
 ## Project description
 Utveckla en MVP för en informationshanteringsapplikation avsedd för svenska myndigheter, med syftet att nyttja kraften hos språkmodeller för hantering av ostrukturerad data. Applikationen är intuitivt konstruerad för enkel uppladdning och hämtning av sådan data, och är skräddarsydd för en bred implementering över diverse organisatoriska miljöer.
 
-
+<img src="files/images/prel_arch.png">
 
 ## Kravspecifikation
 Konvertering av Naturligt Språk till Sökvektor
