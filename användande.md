@@ -1,3 +1,4 @@
+outdated
 
 1. pip install -r requirements.txt
 2. export PATH='/home/niels/.local/bin'
