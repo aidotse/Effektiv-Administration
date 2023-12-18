@@ -1,5 +1,3 @@
-
-
 import pypandoc
 import nltk
 from nltk.tokenize import sent_tokenize
@@ -7,7 +5,7 @@ from nltk.tokenize import sent_tokenize
 # Download the necessary NLTK models (if not already downloaded)
 nltk.download('punkt')
 
-def chunk_text(text, max_length=500):
+def chunk_text(text, max_length=2000):
     """
     Chunk text into segments of a specified maximum length.
 
@@ -30,13 +28,6 @@ def chunk_text(text, max_length=500):
         chunks.append(' '.join(current_chunk))
 
     return chunks
-
-
-{
-    "filename": "./documents2/Projektdirektiv_-_Helhälsa.docx",
-    "text": "dsddwdas"
-}
-
 
 pypandoc_compatible = [
     "biblatex", "bibtex", "commonmark", "commonmark_x", "creole", "csljson", 
@@ -63,7 +54,6 @@ def get_chunks(file_path: str):
         text: str = pypandoc.convert_file(file_path, 'rst')
     else:
         text: str = read_normal_file(file_path)
-    text = text.replace("\r","")
     text = text.replace("\r","")
     chunks = chunk_text(text)
     return chunks

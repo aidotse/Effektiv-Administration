@@ -1,8 +1,10 @@
 import os
 import argparse
 import pypandoc
+import shutil
 from watcher_utils.file_reader import get_chunks
 from tqdm import tqdm
+
 
 import chromadb
 COLLECTION_NAME = "documents_collection"
@@ -24,18 +26,15 @@ def load_file(filepath):
     print(f"Collection already contains {count} documents")
     ids = [str(i) for i in range(count, count + len(documents))]
 
-    # Load the documents in batches of 100
     for i in tqdm(
         range(0, len(documents), 100), desc="Adding documents", unit_scale=100
     ):
         collection.add(
             ids=ids[i : i + 100],
             documents=documents[i : i + 100],
-            metadatas=metadatas[i : i + 100],  # type: ignore
+            metadatas=metadatas[i : i + 100],
         )
 
-    # new_count = collection.count()
-    # print(f"Added {new_count - count} documents")
     results = collection.get(where= {"filepath": filepath})
 
 
@@ -46,11 +45,9 @@ def remove_file(filepath):
         print(f"No collection found with name {COLLECTION_NAME}")
         return
     
-
     collection.delete(where= {"filepath": filepath})
 
 
-import shutil
 def remove_chroma_storage_files():
     """
     Removes all the folders in the specified directory.
@@ -73,8 +70,6 @@ def remove_chroma_storage_files():
 
 def cleanse_documents():
     input("You are deleting everything in the db, do you want to continue?")
-    input("fr?")
-    input("frfr?")
     client = chromadb.PersistentClient(path=PERSIST_DIR)
     client.delete_collection(name=COLLECTION_NAME)
     remove_chroma_storage_files()
@@ -87,18 +82,12 @@ def update_file(filepath):
 
 def check_db():
     client = chromadb.PersistentClient(path="chroma_storage")
-
-    # If the collection already exists, we just return it. This allows us to add more
-    # data to an existing collection.
     collection = client.get_or_create_collection(name="documents_collection")
     result = collection.get()
     print(result)
 
-
-
 def init_db(directory):
     # Read all files in the data directory
-    #skappar list för documents och metadatas
     documents = []
     metadatas = []
     #läser documentes directory
