@@ -8,7 +8,7 @@ from rich.markdown import Markdown
 console = Console()
 
 # Initialize Variables
-model_name = "meta-llama/Llama-2-13b-chat-hf"
+model_name = "mistralai/Mixtral-8x7B-Instruct-v0.1"
 hf_auth = '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'
 
 try:
@@ -19,29 +19,30 @@ try:
     model = AutoModelForCausalLM.from_pretrained(model_name, cache_dir="/data/.cache/huggingface/datasets", device_map="auto",     
                                                 token=hf_auth)
 
+    # generator = pipeline('text-generation', tokenizer=tokenizer, model=model, max_length=20000, 
+    generator = pipeline('text-generation', tokenizer=tokenizer, model=model,  
+                        torch_dtype=torch.bfloat16, 
+                        num_return_sequences=1,
+                        device_map="auto",
+                        return_full_text=False,
+                        max_new_tokens=512,
+                        top_p=0.2,
+                        top_k=4,
+                        repetition_penalty=1.1,
+                        temperature=0.01
+                        )
 except:
     pass
 
-
 def prompt_model(sys_prompt, usr_prompt):
-    generator = pipeline('text-generation', tokenizer=tokenizer, model=model,  
-                    torch_dtype=torch.bfloat16, 
-                    num_return_sequences=1,
-                    device_map="auto",
-                    return_full_text=False,
-                    max_new_tokens=512,
-                    top_p=0.2,
-                    top_k=2,
-                    repetition_penalty=1.1,
-                    temperature=0.001
-                    )
     prompt = """
     <s>[INST] <<SYS>>
     Jag är en svensk chatbot som svarar på frågor från dokument.
     Jag svarar endast på svenska.
     Jag svarar formellt, objektivt.
-    Jag svarar endast om jag har tillgång till informationen, annars svarar jag att jag inte har tillgång till informationen.
-   
+    Jag svarar endast om jag har tillgång till informationen annars svarar jag att jag inte har tillgång till informationen.
+
+
     <</SYS>>
     Dokumentet jag har tillgång till:
     {}
