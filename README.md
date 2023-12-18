@@ -36,17 +36,30 @@ Beskrivning: Dataägare ska kunna dra och släppa dokument i en säkrad nätverk
 ### Säkerhet och Skalbarhet
 Beskrivning: Med tanke på målgruppen (myndigheter) är hög säkerhet och systemets förmåga att växa (skalbarhet) primära fokusområden.
 
-## Table of Contents
-- [How to install and run the project](#install_and_run)
-- [How to use the project](#use_project)
-- [Acknowledgements](#acknowledgements)
-- [How to contribute to the project](#contribute)
+## Innehållsförteckning
+- [Installation](#install_and_run)
+- [Användning](#use_project)
+- [Utvecklare](#acknowledgements)
+- [Bidra till projektet](#contribute)
 
-## How to install and run the project <a name="install_and_run"></a>
+## Installation av projektet <a name="install_and_run"></a>
 
-## How to use the project <a name="use_project"></a>
-Provide instructions and examples so users/contributors can use the project
+### Installera moduler
 
-## Acknowledgements <a name="acknowledgements"></a>
+```bash
+pip install -r requirements.txt
+```
 
-## How to contribute to the project <a name="contribute"></a>
+## Användning <a name="use_project"></a>
+Instruktioner för användare
+
+## Utvecklare <a name="acknowledgements"></a>
+
+Detta projekt möjliggjordes tack vare de följande utvecklarna:
+
+- [Niels Houben](https://github.com/NielsHouben)
+- [Sofia Nguyen](https://github.com/sofianguyenAI)
+- [Felix Folkebrant](https://github.com/FelixFolkebrantAIS)
+- [Gustav Jakobsson](https://github.com/gusjak251)
+
+## Bidra till projektet <a name="contribute"></a>
