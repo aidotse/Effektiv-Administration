@@ -1,4 +1,13 @@
 torch
-fairscale
-fire
-sentencepiece
+transformers
+accelerate
+chromadb
+rich
+watchdog
+pypandoc
+pypandoc_binary
+nltk
+langchain
+flask
+sentence-transformers
+flask-cors
