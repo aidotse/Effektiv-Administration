@@ -13,3 +13,7 @@ för 13b:
 
 
 [error thread](https://github.com/facebookresearch/llama/issues/415)
+
+
+
+Måste köras inifrån ```src```
