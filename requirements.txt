@@ -9,5 +9,10 @@ pypandoc_binary
 nltk
 langchain
 flask
-sentence-transformers
 flask-cors
+sentence-transformers
+google-auth 
+google-auth-oauthlib
+google-api-python-client
+tqdm
+markdown
