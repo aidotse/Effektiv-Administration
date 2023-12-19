@@ -3,6 +3,22 @@
 ##  Projektbeskrivning
 Utveckla en MVP för en informationshanteringsapplikation avsedd för svenska myndigheter, med syftet att nyttja kraften hos språkmodeller för hantering av ostrukturerad data. Applikationen är intuitivt konstruerad för enkel uppladdning och hämtning av sådan data, och är skräddarsydd för en bred implementering över diverse organisatoriska miljöer.
 
+## Snabbstart
+
+Starta alla moduler
+
+```bash
+./start_everything.bash --watcher --mail --model
+```
+
+Starta moduler separat
+
+```bash
+./start_everything.bash --watcher
+./start_everything.bash --model
+./start_everything.bash --mail
+```
+
 ##  Innehållsförteckning
 -  [Kravspecifikation](#kravspecifikation)
 -  [Installation](#install_and_run)
