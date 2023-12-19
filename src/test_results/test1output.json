@@ -1,8 +1,0 @@
-[
-    {
-        "test_name": "test 1",
-        "description": "runs a test",
-        "prompt": "This is a test prompt",
-        "response": "RESPONSEThis is a test prompt"
-    }
-]

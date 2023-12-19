@@ -2,17 +2,13 @@ import base64
 import os
 import re
 from email.mime.text import MIMEText
+import markdown2
+from utils.api.prompt_request import prompt_request
 
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
-
-from utils.api.prompt_request import prompt_request
-from rich.markdown import Markdown
-import markdown
-from markdown_it import MarkdownIt
-import markdown2
 
 
 
@@ -138,7 +134,7 @@ def get_service(scopes):
             creds.refresh(Request())
         else:
             flow = InstalledAppFlow.from_client_secrets_file("credentials.json", scopes)
-            creds = flow.run_local_server(port=5000)
+            creds = flow.run_local_server(port=5001)
         # Save the credentials for the next run
         with open("token.json", "w") as token:
             token.write(creds.to_json())
@@ -208,7 +204,7 @@ def respond_to_mails(service, sender_adress, user_id):
     unread_emails = get_unread_emails(service)
 
     for email in unread_emails:
-        if email["subject"].lower() == "info":
+        if email["subject"].lower() == "fråga":
             print("\nMAIL FOUND\n==================================")
             print(
                 f'Sender: {email["name"]}\nAddress: {email["address"]}\nContent: {email["body"]}'
@@ -218,9 +214,6 @@ def respond_to_mails(service, sender_adress, user_id):
             prompt = email["body"].rstrip()
             prompt_res = prompt_request(prompt)
 
-            md = MarkdownIt()
-            # formatted_answer = markdown.markdown(prompt_res['answer'])
-            # formatted_answer = md.render(prompt_res['answer'])
             formatted_answer = markdown2.markdown(prompt_res['answer'], extras=['tables'])
 
             
