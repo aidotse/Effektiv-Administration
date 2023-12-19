@@ -38,3 +38,14 @@ test_prompts = [
     """
     }
 ]
+
+standard_prompts = [
+    'Vad är den totala budgeten för HelHälsa projektet?',
+    'Kan du sammanfatta ekonomin för HelHälsa mobilapplikation i en tabell?',
+    'Kan du sammanställa projektets kvalitetskrav i en tabell?',
+    'Hur lång tid kommer projektet HelHälsa att ta?',
+    'Sammanfatta projektplanen för HelHälsa Mobilapplikation.',
+    'Vad behöver jag veta som utvecklare för HelHälsa Mobilapplikation?',
+    'Var ligger Strömsholm?',
+    'How do you cook chicken tikka masala'
+]
