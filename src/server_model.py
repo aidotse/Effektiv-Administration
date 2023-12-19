@@ -1,7 +1,8 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 
-from model_wrapper import prompt_model
+# from model_wrapper import prompt_model
+from utils.model.llama2_chat_hf_wrapper import prompt_model
 from utils.query.query import preform_query
 app = Flask(__name__)
 CORS(app)  
@@ -11,7 +12,7 @@ CORS(app)
 def post_example():
     data = request.get_json()  # Assuming the incoming data is in JSON format
     if 'prompt' not in data:
-        return jsonify({"error: no prompt received!"})
+        return jsonify({"error": "no prompt received!"})
 
     usr_prompt = data['prompt']
     # You can process the received data here
