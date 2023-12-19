@@ -97,6 +97,10 @@ Starta funktionsbrevlådan
 python3 server_mail.py
 ```
 
+I nuläget används Googles API för att kunna ta emot och skicka mail från en gmail-adress. Filerna src/credentials.json och src/token.json krävs för att kunna komma åt api:et. 
+
+Endast mail med rubriken "fråga" läses in.
+
 
 
 ##  Arkitektur<a  name="arkitektur"></a>
