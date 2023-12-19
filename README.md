@@ -3,22 +3,6 @@
 ##  Projektbeskrivning
 Utveckla en MVP för en informationshanteringsapplikation avsedd för svenska myndigheter, med syftet att nyttja kraften hos språkmodeller för hantering av ostrukturerad data. Applikationen är intuitivt konstruerad för enkel uppladdning och hämtning av sådan data, och är skräddarsydd för en bred implementering över diverse organisatoriska miljöer.
 
-## Snabbstart
-
-Starta alla moduler
-
-```bash
-./start_everything.bash --watcher --mail --model
-```
-
-Starta moduler separat
-
-```bash
-./start_everything.bash --watcher
-./start_everything.bash --model
-./start_everything.bash --mail
-```
-
 ##  Innehållsförteckning
 -  [Kravspecifikation](#kravspecifikation)
 -  [Installation](#install_and_run)
@@ -59,16 +43,45 @@ Beskrivning: Med tanke på målgruppen (myndigheter) är hög säkerhet och syst
 
 ##  Installation av projektet <a  name="install_and_run"></a>
 
+Denna installationsguide är anpassad för Ubuntu 22.04
+
 ###  Installera moduler
+
+1.Klona projektet från github
+2.Öppna sökvägen i terminalen
 ```bash
-pip  install  -r  requirements.txt
+cd Effektiv-Administration
+```
+3.Installera de moduler som krävs för att köra projektet
+```bash
+pip install -r requirements.txt
 ```
 
+[Dokumentation för ChromaDB](https://docs.trychroma.com/)
+
 ##  Användande <a  name="use_project"></a>
+
+### Snabbstart
+
+Starta alla moduler
+
+```bash
+./start_everything.bash --watcher --mail --model
+```
+
+Starta moduler separat
+
+```bash
+./start_everything.bash --watcher
+./start_everything.bash --model
+./start_everything.bash --mail
+```
 
 ### API
 
 Starta API:et
+
+Detta kommando körs från root-mappen
 
 ```bash
 python3 src/server_model.py
