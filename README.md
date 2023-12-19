@@ -55,7 +55,7 @@ pip  install  -r  requirements.txt
 Starta API:et
 
 ```bash
-python3 server_model.py
+python3 src/server_model.py
 ```
 
 #### POST /prompt
@@ -94,7 +94,7 @@ Exempel på svar då korrekt formaterad prompt har skickats med
 Starta funktionsbrevlådan
 
 ```bash
-python3 server_mail.py
+python3 src/server_mail.py
 ```
 
 I nuläget används Googles API för att kunna ta emot och skicka mail från en gmail-adress. Filerna src/credentials.json och src/token.json krävs för att kunna komma åt api:et. 
