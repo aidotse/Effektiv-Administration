@@ -122,6 +122,8 @@ Exempel på svar då korrekt formaterad prompt har skickats med
 
 Starta funktionsbrevlådan
 
+Detta kommando körs från root-mappen
+
 ```bash
 python3 src/server_mail.py
 ```
